@@ -1,4 +1,5 @@
 import cv2
+import matplotlib.pyplot as plt
 
 face_cascade = cv2.CascadeClassifier("./haarcascade_frontalface_default.xml")
 smile_cascade = cv2.CascadeClassifier("./haarcascade_smile.xml")
@@ -15,6 +16,7 @@ for (x, y, w, h) in faces:
     for (sx, sy, sw, sh) in smiles:
         cv2.rectangle(face_color, (sx, sy), (sx + sw, sy + sh), (0, 0, 255))
 
-cv2.imshow("Figura", img)
-
-cv2.waitKey(0)
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+plt.grid(False)
+plt.axis("off")
+plt.show()
